@@ -1,0 +1,25 @@
+@startuml
+
+title Component Diagram for MinBioAnxiety App
+
+together {
+  package "MinBioAnxiety App" {
+    component "Authentication" as Auth <<Component>>
+    component "Profile Management" as Profile <<Component>>
+    component "Biofeedback" as Bio <<Component>>
+    component "Breathing Exercises" as Breathing <<Component>>
+    component "Mood Logging" as Mood <<Component>>
+    component "Help Section" as Help <<Component>>
+    component "Recommendations" as Recomm <<Component>>
+    component "Emergency Contact" as Emergency <<Component>>
+  }
+}
+
+Auth --> Profile : <<delegate>>
+Bio --> Breathing : <<delegate>>
+Mood --> Help : <<delegate>>
+Recomm --> Emergency : <<delegate>>
+Bio --> "Smartwatch Interface" : <<retrieve>>
+Breathing --> "Audio Player" : <<play>>
+
+@enduml
